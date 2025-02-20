@@ -1,0 +1,3 @@
+[submodule "microservices/lgm8-auth-service"]
+	path = microservices/lgm8-auth-service
+	url = git@github.com:Shin-9x/lgm8-auth-service.git
