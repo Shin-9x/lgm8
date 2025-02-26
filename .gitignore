@@ -1,1 +1,4 @@
 ﻿infrastructure/volumes/postgres_data/*
+infrastructure/.DS_Store
+microservices/.DS_Store
+.DS_Store

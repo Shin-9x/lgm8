@@ -42,3 +42,18 @@ services:
     depends_on:
       - keycloak
     restart: unless-stopped
+
+  
+  lgm8-auth-service:
+    build:
+      context: ../
+      dockerfile: microservices/lgm8-auth-service/dockerfile
+    container_name: lgm8-auth-service
+    environment:
+      - GIN_MODE=debug
+      - GIN_TRUSTED_PROXIES=nginx,keycloak
+    ports:
+      - "8081:8081"
+    depends_on:
+      - keycloak
+    restart: unless-stopped
