@@ -1,0 +1,270 @@
+{
+	"info": {
+		"_postman_id": "80f400aa-7c99-4a57-b709-4f3093425bb8",
+		"name": "AUTH-SERVICE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25010306"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"test\",\r\n    \"password\": \"test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api/auth/v1/session/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"auth",
+						"v1",
+						"session",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJIek1PTjhoLTZEZGwyN2dtTHNrZ1doUkJoaVB1UVdRWjRHLUZOZEVSaTNnIn0.eyJleHAiOjE3NDA3NzkxNDIsImlhdCI6MTc0MDc3ODg0MiwianRpIjoiYmU1ZGQ1NTctNDM1Zi00MDE1LTgyMzktNDZiNmM3YjMzYTkyIiwiaXNzIjoiaHR0cDovL2tleWNsb2FrOjgwODAvcmVhbG1zL2xnbTgiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMmQyZDkzNTctZjJlYi00OTJhLWE4MDktNzUxZmRmMjM1NjZiIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoibGdtOC1hdXRoLXNlcnZpY2UiLCJzZXNzaW9uX3N0YXRlIjoiZTg2NjkxMjgtMDc2Mi00ZThkLWExNTMtN2U4OWE3Njc2MDQxIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIvKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1sZ204Iiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoib3BlbmlkIGVtYWlsIHByb2ZpbGUiLCJzaWQiOiJlODY2OTEyOC0wNzYyLTRlOGQtYTE1My03ZTg5YTc2NzYwNDEiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJUZXN0IFRlc3QiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJ0ZXN0IiwiZ2l2ZW5fbmFtZSI6IlRlc3QiLCJmYW1pbHlfbmFtZSI6IlRlc3QiLCJlbWFpbCI6InRlc3RAZmFrZXVzZXIuaXQifQ.evcWfnPRu1PZ9lGs14B3Cu7eDGWnhcygrWDpqR8Q9yywAciwbzMBIdxHn9FsDRKh8OWXgpL3YlpNRHNbMTPpJuoXrd8XKWeAJEMUGQqIqSZxQm798gWZlZA5rS4yWUngKtbjYOGrabN4qxbIosiCiCTeY4cp7TaLkFIemYqIdVr59r4kOCr5E8TxjXIGNKVb03jcZlXToN7wp3xfBiHLvqwPUN5X6jn2TAEzytd47SQQE71SSKxTVmrs7nI6_1unQmH9rTBXRzWXYcSotDQaZ6-b7ctGjGrzVW0txbqBLd5pUxgHDa2w1InWLLYnNnKxanV3_T7tEsNTf4rwiuue5Q",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\": \"2d2d9357-f2eb-492a-a809-751fdf23566b\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api/auth/v1/session/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"auth",
+						"v1",
+						"session",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Refresh Token",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI1OTYzOWU0YS1jYzljLTQwODQtYWY3My0xMjI0ZjYwY2ZkYzMifQ.eyJleHAiOjE3NDA3ODA2NDIsImlhdCI6MTc0MDc3ODg0MiwianRpIjoiZmVmZmU4Y2EtNDA2NC00ZDdiLWEzZmQtMTlhN2IyMTAyYjlmIiwiaXNzIjoiaHR0cDovL2tleWNsb2FrOjgwODAvcmVhbG1zL2xnbTgiLCJhdWQiOiJodHRwOi8va2V5Y2xvYWs6ODA4MC9yZWFsbXMvbGdtOCIsInN1YiI6IjJkMmQ5MzU3LWYyZWItNDkyYS1hODA5LTc1MWZkZjIzNTY2YiIsInR5cCI6IlJlZnJlc2giLCJhenAiOiJsZ204LWF1dGgtc2VydmljZSIsInNlc3Npb25fc3RhdGUiOiJlODY2OTEyOC0wNzYyLTRlOGQtYTE1My03ZTg5YTc2NzYwNDEiLCJzY29wZSI6Im9wZW5pZCBlbWFpbCBwcm9maWxlIiwic2lkIjoiZTg2NjkxMjgtMDc2Mi00ZThkLWExNTMtN2U4OWE3Njc2MDQxIn0.uXsyxkgyXSKPr1N-k1qsRGLmEws9bphprU3Tlg0Q4Gk\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api/auth/v1/token/refresh",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"auth",
+						"v1",
+						"token",
+						"refresh"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJIek1PTjhoLTZEZGwyN2dtTHNrZ1doUkJoaVB1UVdRWjRHLUZOZEVSaTNnIn0.eyJleHAiOjE3NDA2MDI4NTAsImlhdCI6MTc0MDYwMjU1MCwianRpIjoiNzc3NTU2NGQtZGI4ZS00MTkyLTlhNjgtYTZhZDVjM2RiN2FhIiwiaXNzIjoiaHR0cDovL2tleWNsb2FrOjgwODAvcmVhbG1zL2xnbTgiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMmQyZDkzNTctZjJlYi00OTJhLWE4MDktNzUxZmRmMjM1NjZiIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoibGdtOC1hdXRoLXNlcnZpY2UiLCJzZXNzaW9uX3N0YXRlIjoiMTMyZTg3NGMtMTRhZS00YmFmLWIxZTQtOTFiMjZhODQzMTkyIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIvKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1sZ204Iiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoib3BlbmlkIGVtYWlsIHByb2ZpbGUiLCJzaWQiOiIxMzJlODc0Yy0xNGFlLTRiYWYtYjFlNC05MWIyNmE4NDMxOTIiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJUZXN0IFRlc3QiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJ0ZXN0IiwiZ2l2ZW5fbmFtZSI6IlRlc3QiLCJmYW1pbHlfbmFtZSI6IlRlc3QiLCJlbWFpbCI6InRlc3RAZmFrZXVzZXIuaXQifQ.F51nSmR5XaSipXVI1KnM07RmyNwp1UymWYp_oorkADiMxmVi4n4tCwFIdpVAnVb8-osoyFE2InlIANY9BhJUzvGBXk1sCSl0VS7GHnXAT-Vde88J9nq_TxtP8oBsQqKuGqX8BUViOpyY-RfzDXXCiq_FH0u2hmOS_D_KyHQsrGoEf_M9ynWTK3_Pa0L_MNOpShQHhRPA_D4kjMZb1yWgMcJDirFWBJw2Ghpj2-xZKkezWxKScHMmL1NtdKFOuel8Uv9gaHFIcz3rfXKwGC3TpPPHbZ_sbotqG_kX5jeDWXFZC6VrvtvpKXXCQGnDhd_Knjq9H6ghSI-8_g13ZeJaKQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/api/auth/v1/users/2d2d9357-f2eb-492a-a809-751fdf23566b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"auth",
+						"v1",
+						"users",
+						"2d2d9357-f2eb-492a-a809-751fdf23566b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"test2\",\r\n    \"email\": \"test2@fakemail.it\",\r\n    \"password\": \"test2test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api/auth/v1/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"auth",
+						"v1",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJIek1PTjhoLTZEZGwyN2dtTHNrZ1doUkJoaVB1UVdRWjRHLUZOZEVSaTNnIn0.eyJleHAiOjE3NDA2MDMzMTUsImlhdCI6MTc0MDYwMzAxNSwianRpIjoiNmZjZWM4ZDctMTI3Ni00MTc2LWFiOTEtNWU0ZjIzMjg0YjAzIiwiaXNzIjoiaHR0cDovL2tleWNsb2FrOjgwODAvcmVhbG1zL2xnbTgiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiMmQyZDkzNTctZjJlYi00OTJhLWE4MDktNzUxZmRmMjM1NjZiIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoibGdtOC1hdXRoLXNlcnZpY2UiLCJzZXNzaW9uX3N0YXRlIjoiZTU1ZTZiMzUtZGUyYS00MzQ4LTkzODItZTQ5ZjAwYmM0YzJkIiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIvKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1sZ204Iiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoib3BlbmlkIGVtYWlsIHByb2ZpbGUiLCJzaWQiOiJlNTVlNmIzNS1kZTJhLTQzNDgtOTM4Mi1lNDlmMDBiYzRjMmQiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiJUZXN0IFRlc3QiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJ0ZXN0IiwiZ2l2ZW5fbmFtZSI6IlRlc3QiLCJmYW1pbHlfbmFtZSI6IlRlc3QiLCJlbWFpbCI6InRlc3RAZmFrZXVzZXIuaXQifQ.PvUkmuzRH6P6gXq1VL3XiAVPxu4CEK_RIVQzRRmNYV7ZHklU7jQvWB_AlGBuWgaVcgGq4SKrrOoJKalmAz1gRk3R37RhQ24_JxHXZrCYAPyXlmc9ThJ5vvByeeZK8Bf2dP7RhJOMZUqaI-7WEKg6VdHmB5mwoz3lA7dkDBVqbI3_vnlolTPorKHqr6w9SM3KeCbcLYa8XOih8uOi0hAf-0BHtptxOeKGpPdrtP-tUyW3PzQQN-YBD1leLo0ve1pLqB_FZSKXu5Gh9OtMNnL5oF5Hc0M7gZKfL-ROqO76VOTGm_1jApqPEl6TnnOXqTBrQ2gK95CCbyUinTFVHNaVGw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/api/auth/v1/users/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"auth",
+						"v1",
+						"users",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "2bfc1d90-ae4f-456c-b27e-ac8a4a793028"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User Password",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJIek1PTjhoLTZEZGwyN2dtTHNrZ1doUkJoaVB1UVdRWjRHLUZOZEVSaTNnIn0.eyJleHAiOjE3NDA2MDM0NDksImlhdCI6MTc0MDYwMzE0OSwianRpIjoiNGEyNTdlNWMtNjhkMy00MmM0LThmN2YtYzVhNjA3ZmE0Y2M1IiwiaXNzIjoiaHR0cDovL2tleWNsb2FrOjgwODAvcmVhbG1zL2xnbTgiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYmZlNjA1NjMtOGQ2Ni00Yzk5LThiNjAtODQ3MDM0MjUzYmI4IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoibGdtOC1hdXRoLXNlcnZpY2UiLCJzZXNzaW9uX3N0YXRlIjoiODZlZDBkNGMtNmE2ZS00N2FiLWI3MjItNDNhYjVjNjJhOTk4IiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIvKiJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1sZ204Iiwib2ZmbGluZV9hY2Nlc3MiLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoib3BlbmlkIGVtYWlsIHByb2ZpbGUiLCJzaWQiOiI4NmVkMGQ0Yy02YTZlLTQ3YWItYjcyMi00M2FiNWM2MmE5OTgiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInByZWZlcnJlZF91c2VybmFtZSI6InRlc3QyIiwiZW1haWwiOiJ0ZXN0MkBmYWtlbWFpbC5pdCJ9.J_h_cuu-1SuDtwOLUYqq_Bu_yKfNJlW3eOGuMLQj_M4ZWetfGKi-N9bpGk0TNdkiPED8PJOBI1ZeSUYVYht0_KQVd75yujmuXjf45MvZgLoWfyR7p7ke_wRPbceVKP7GmZsgXza50h4WRAM5Y5-5vgPTIT4Oiy07xDlBMI9gAPchsUz11OJOpsTpnHHG0FWXPPgj-nG_BnFI19W8AAaqshEft1XIbZQvlRXA31YMRlmNLx7xT3e-_oMhZGrEiP2dRjN_hnFPsrBErOlu2HnVfnjVxuGxqs45nShjus96A2i8BmOFjpc21xP490y8ZF57NMVdEfU6QKvinedfB5l76w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"newPassword\": \"test2test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api/auth/v1/users/:id/password",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"auth",
+						"v1",
+						"users",
+						":id",
+						"password"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "bfe60563-8d66-4c99-8b60-847034253bb8"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
