@@ -66,6 +66,8 @@ services:
       - GIN_MODE=debug
       - GIN_TRUSTED_PROXIES=nginx,keycloak
       - APP_ENV=dev
+    secrets:
+      - user_verification_secret_key
     ports:
       - "8081:8081"
     depends_on:
@@ -80,3 +82,7 @@ networks:
 
 volumes:
   postgres_data:
+
+secrets:
+  user_verification_secret_key:
+    file: ./secrets/user_verification_secret

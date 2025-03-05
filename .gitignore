@@ -2,3 +2,4 @@
 infrastructure/.DS_Store
 microservices/.DS_Store
 .DS_Store
+infrastructure/secrets/
