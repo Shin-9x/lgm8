@@ -1,3 +1,9 @@
 [submodule "microservices/lgm8-auth-service"]
 	path = microservices/lgm8-auth-service
 	url = git@github.com:Shin-9x/lgm8-auth-service.git
+[submodule "lgm8-notification-service"]
+	path = lgm8-notification-service
+	url = https://github.com/Shin-9x/lgm8-notification-service
+[submodule "microservices/lgm8-notification-service"]
+	path = microservices/lgm8-notification-service
+	url = https://github.com/Shin-9x/lgm8-notification-service
