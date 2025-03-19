@@ -7,3 +7,6 @@
 [submodule "microservices/lgm8-notification-service"]
 	path = microservices/lgm8-notification-service
 	url = https://github.com/Shin-9x/lgm8-notification-service
+[submodule "microservices/lgm8-measurements-service"]
+	path = microservices/lgm8-measurements-service
+	url = https://github.com/Shin-9x/lgm8-measurements-service.git

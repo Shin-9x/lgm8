@@ -1,23 +1,4 @@
-version: "3.8"
-
 services:
-  jenkins:
-    image: jenkins/jenkins:lts
-    container_name: jenkins
-    user: root
-    privileged: true
-    ports:
-      - "8085:8080"
-      - "50000:50000"
-    volumes:
-      - jenkins_home:/var/jenkins_home
-      - /var/run/docker.sock:/var/run/docker.sock
-    environment:
-      - JENKINS_OPTS=--prefix=/jenkins
-    restart: unless-stopped
-    networks:
-      - keycloak_network
-
   postgres:
     image: postgres:15
     container_name: keycloak_db
@@ -32,6 +13,26 @@ services:
     restart: unless-stopped
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U keycloak"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    networks:
+      - keycloak_network
+
+  postgres_main:
+    image: postgres:15
+    container_name: postgres_main
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: lgm8_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_main_data:/var/lib/postgresql/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U app_user"]
       interval: 30s
       timeout: 10s
       retries: 5
@@ -67,8 +68,8 @@ services:
       RABBITMQ_DEFAULT_USER: admin
       RABBITMQ_DEFAULT_PASS: admin
     ports:
-      - "5672:5672"    # Port for AMQP communication
-      - "15672:15672"  # Port for management interface
+      - "5672:5672"
+      - "15672:15672"
     volumes:
       - rabbitmq_data:/var/lib/rabbitmq
     restart: unless-stopped
@@ -115,6 +116,23 @@ services:
     networks:
       - keycloak_network
 
+  lgm8-measurements-service:
+    build:
+      context: ../
+      dockerfile: microservices/lgm8-measurements-service/dockerfile
+    container_name: lgm8-measurements-service
+    environment:
+      - GIN_MODE=debug
+      - GIN_TRUSTED_PROXIES=nginx,keycloak
+      - APP_ENV=dev
+    depends_on:
+      postgres_main:
+        condition: service_healthy
+    ports:
+      - "8082:8082"
+    networks:
+      - keycloak_network
+
   lgm8-notification-service:
     build:
       context: ../
@@ -134,8 +152,8 @@ networks:
 
 volumes:
   postgres_data:
+  postgres_main_data:
   rabbitmq_data:
-  jenkins_home:
 
 secrets:
   user_verification_secret_key:
